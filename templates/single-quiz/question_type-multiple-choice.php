@@ -142,7 +142,7 @@ $question_description = apply_filters( 'the_content', $question_item->post_conte
 
 $answer_message = false;
 $answer_notes = false;
-if( ( $lesson_complete && $user_quiz_grade != '' ) || ( $lesson_complete && ! $reset_quiz_allowed && 'auto' == $quiz_grade_type ) || ( 'auto' == $quiz_grade_type && ! $reset_quiz_allowed && $user_quiz_grade != '' ) ) {
+if( $user_quiz_grade != '' ) {
 	$user_correct = false;
 	$answer_message = __( 'Incorrect', 'woothemes-sensei' );
 	$answer_message_class = 'user_wrong';
@@ -182,7 +182,7 @@ if( ( $lesson_complete && $user_quiz_grade != '' ) || ( $lesson_complete && ! $r
 	<?php } ?>
 	<input type="hidden" name="<?php echo esc_attr( 'question_id_' . $question_id ); ?>" value="<?php echo esc_attr( $question_id ); ?>" />
 	<ul class="answers">
-	<?php 
+	<?php
 	$count = 0;
 	foreach( $answers_sorted as $id => $answer ) {
 		$checked = '';
